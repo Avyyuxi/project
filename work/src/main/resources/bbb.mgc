@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class name="model.Course" x="1240" y="614">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="model.Course"
+            endpointName="prerequisites" kind="Simple"/>
+        <Association destinationClassName="model.PlanOfStudy"
+            endpointName="planOfStudy" kind="Simple"/>
+        <Association destinationClassName="model.Section"
+            endpointName="offeredAsSection" kind="Simple"/>
+    </Class>
+    <Class name="model.Professor" x="223" y="98">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="model.Person"/>
+        <Association destinationClassName="model.Section"
+            endpointName="teaches" kind="Simple"/>
+        <Communication destinationClassName="model.Section"/>
+    </Class>
+    <Class name="model.PlanOfStudy" x="763" y="651">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="model.Course"
+            endpointName="courses" kind="Simple"/>
+    </Class>
+    <Class name="model.Person" x="268" y="527">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class name="model.Section" x="626" y="-19">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="model.Professor"
+            endpointName="instructor" kind="Simple"/>
+        <Association destinationClassName="model.Course"
+            endpointName="representedCourse" kind="Simple"/>
+        <Association destinationClassName="model.TranscriptEntry"
+            endpointName="assignedGrades" kind="Simple"/>
+        <Association destinationClassName="model.ScheduleOfClasses"
+            endpointName="offeredIn" kind="Simple"/>
+        <Communication destinationClassName="model.Course"/>
+        <Communication destinationClassName="model.Student"/>
+        <Communication destinationClassName="model.TranscriptEntry"/>
+    </Class>
+    <Class name="model.ScheduleOfClasses" x="1110" y="186">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="model.Section"
+            endpointName="sectionsOffered" kind="Simple"/>
+        <Communication destinationClassName="model.Course"/>
+        <Communication destinationClassName="model.Section"/>
+    </Class>
+    <Class name="model.Student" x="474" y="401">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="model.Person"/>
+        <Association destinationClassName="model.PlanOfStudy"
+            endpointName="planOfStudy" kind="Simple"/>
+        <Association destinationClassName="model.Transcript"
+            endpointName="transcript" kind="Simple"/>
+        <Association destinationClassName="model.Section"
+            endpointName="attends" kind="Simple"/>
+        <Communication destinationClassName="model.Section"/>
+        <Communication destinationClassName="model.Transcript"/>
+    </Class>
+    <Class name="model.TranscriptEntry" x="988" y="351">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="model.Transcript"
+            endpointName="transcript" kind="Simple"/>
+        <Association destinationClassName="model.Student"
+            endpointName="student" kind="Simple"/>
+        <Association destinationClassName="model.Section"
+            endpointName="section" kind="Simple"/>
+        <Communication destinationClassName="model.Student"/>
+        <Communication destinationClassName="model.Transcript"/>
+    </Class>
+    <Class name="model.Transcript" x="945" y="512">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association destinationClassName="model.Student"
+            endpointName="studentOwner" kind="Simple"/>
+        <Association destinationClassName="model.TranscriptEntry"
+            endpointName="transcriptEntries" kind="Simple"/>
+        <Communication destinationClassName="model.Section"/>
+        <Communication destinationClassName="model.TranscriptEntry"/>
+    </Class>
+</ClassDiagram>

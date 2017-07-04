@@ -1,0 +1,27 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.dialect">util.SQLiteDialect </property>
+        <property name="hibernate.connection.driver_class">org.sqlite.JDBC</property>
+        <property name="hibernate.connection.username">null</property>
+        <property name="hibernate.connection.password">null</property>
+        <property name="hibernate.connection.url">jdbc:sqlite:db/Work.sqlite</property>
+        <property name="show_sql">true</property>
+        <property name="hbm2ddl.auto">update</property>
+    	<property name="hibernate.current_session_context_class">thread</property>
+    	<!-- 指定映射文件的路径 -->
+    	<mapping class="model.Section"/>
+    	
+    	<mapping class="model.Student"/>
+    	<mapping class="model.Professor"/>    	
+    	<mapping class="model.Course"/>
+    	<mapping class="model.PlanOfStudy"/>
+		<mapping class="model.ScheduleOfClasses"/>
+		<mapping class="model.TranscriptEntry"/>
+		<mapping class="model.Transcript"/>
+
+    </session-factory>
+</hibernate-configuration>
